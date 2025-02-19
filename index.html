@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Send Message to Telegram</title>
- 
+
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -12,7 +12,7 @@
         padding: 0;
         box-sizing: border-box;
       }
- 
+
       /* Chat Icon */
       .chat-icon {
         position: fixed;
@@ -27,12 +27,12 @@
         cursor: pointer;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
- 
+
       .chat-icon img {
         width: 60px;
         height: 60px;
       }
- 
+
       /* Chat Box */
       .chat-box {
         position: fixed;
@@ -46,7 +46,7 @@
         display: none;
         flex-direction: column;
       }
- 
+
       .chat-header {
         background-color: #007bff;
         color: white;
@@ -57,37 +57,37 @@
         justify-content: space-between;
         align-items: center;
       }
- 
+
       .chat-header h3 {
         margin: 0;
       }
- 
+
       .close-btn {
         cursor: pointer;
         font-size: 20px;
       }
- 
+
       .chat-content {
         flex: 1;
         padding: 10px;
         overflow-y: auto;
         background-color: #f1f1f1;
       }
- 
+
       .chat-footer {
         padding: 10px;
         display: flex;
         align-items: center;
         border-top: 1px solid #ddd;
       }
- 
+
       .chat-footer input {
         width: 80%;
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 5px;
       }
- 
+
       .chat-footer button {
         padding: 10px;
         background-color: #007bff;
@@ -97,7 +97,7 @@
         margin-left: 10px;
         cursor: pointer;
       }
- 
+
       .chat-footer button:hover {
         background-color: #0056b3;
       }
@@ -105,7 +105,7 @@
   </head>
   <body>
     <h1>Send a Message to Telegram Group</h1>
- 
+
     <div class="chat-icon" id="chatIcon">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -133,7 +133,7 @@
         ></path>
       </svg>
     </div>
- 
+
     <div class="chat-box" id="chatBox">
       <div class="chat-header">
         <h3>IT Support</h3>
@@ -151,22 +151,22 @@
         <button type="submit">Send</button>
       </form>
     </div>
- 
+
     <script>
       const chatIcon = document.getElementById("chatIcon");
       const chatBox = document.getElementById("chatBox");
       const closeChat = document.getElementById("closeChat");
- 
+
       chatIcon.addEventListener("click", () => {
         chatBox.style.display = "flex";
         chatIcon.style.display = "none";
       });
- 
+
       closeChat.addEventListener("click", () => {
         chatBox.style.display = "none";
         chatIcon.style.display = "flex";
       });
- 
+
       document
         .getElementById("telegram-form")
         .addEventListener("submit", function (e) {
@@ -174,14 +174,14 @@
           const message = document.getElementById("message").value;
           sendMessageToTelegram(message);
         });
- 
+
       function sendMessageToTelegram(message) {
-        const botToken = "5132652257:AAEAdYTwR5QbRQCMx8blQ5sstwqJkrkAt9Y";
-        const chatId = "-1002368146360";
+        const botToken = "1213547093:AAGIFo0ptOxbzGR-j3b3UbbtxxbxVDfmY-g";
+        const chatId = "-1002477092399";
         const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(
           message
         )}`;
- 
+
         fetch(url)
           .then((response) => response.json())
           .then((data) => {
